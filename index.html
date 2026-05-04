@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bjornfeldt</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      padding: 60px 10%;
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    }
+
+    .hero h1 {
+      font-size: 72px;
+      margin: 0 0 20px;
+      font-weight: 500;
+      letter-spacing: -2px;
+      text-transform: lowercase;
+    }
+
+    .hero p {
+      font-size: 22px;
+      max-width: 520px;
+      color: #dbeafe;
+      line-height: 1.5;
+    }
+
+    .section {
+      padding: 80px 10%;
+      background: #ffffff;
+      color: #111827;
+    }
+
+    .section h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      text-transform: lowercase;
+    }
+
+    .section p {
+      font-size: 20px;
+      max-width: 650px;
+      line-height: 1.6;
+      color: #374151;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: #e0ecff;
+      color: #1e3a8a;
+      font-weight: 600;
+    }
+
+    footer {
+      padding: 30px 10%;
+      background: #f3f4f6;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero p,
+      .section p {
+        font-size: 18px;
+      }
+
+      .section h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <section class="hero">
+      <div>
+        <h1>bjornfeldt</h1>
+        <p>Simple tools for better everyday decisions.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>fair playtime live</h2>
+      <p>
+        A simple match tool for football coaches to manage equal playing time,
+        player rotation and live goal updates during matches.
+      </p>
+      <div class="badge">coming soon</div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 bjornfeldt · Fair Playtime Live by bjornfeldt
+  </footer>
+
+</body>
+</html>
