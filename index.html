@@ -1,259 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>bjornfeldt — App Development Studio</title>
-  <meta name="description" content="bjornfeldt is a modern app development studio building simple, useful and polished digital products." />
-  <link rel="icon" href="assets/bjornfeldt-logo.png" />
-  <style>
-    :root {
-      --bg: #07111d;
-      --bg2: #0b1623;
-      --card: rgba(255,255,255,0.045);
-      --border: rgba(214,179,90,0.18);
-      --text: #f4efe4;
-      --muted: #a6afbb;
-      --gold: #d6b35a;
-      --gold2: #f1d28a;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bjornfeldt</title>
+<style>
+body{
+    margin:0;
+    background:#050b16;
+    color:#f5f5f5;
+    font-family:Arial, Helvetica, sans-serif;
+    background-image: radial-gradient(circle at top, rgba(24,47,88,0.35), transparent 50%);
+}
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 24px;
+}
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:60px;
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    color:#d6b35a;
+    font-size:22px;
+    letter-spacing:2px;
+}
+.logo img{
+    width:42px;
+    height:42px;
+    border-radius:8px;
+}
+.links{
+    display:flex;
+    gap:28px;
+}
+.links a{
+    color:#d6d6d6;
+    text-decoration:none;
+}
+.hero{
+    text-align:center;
+    padding:40px 0 80px;
+}
+.hero img{
+    width:340px;
+    max-width:90%;
+    margin-bottom:40px;
+}
+.small{
+    color:#d6b35a;
+    letter-spacing:3px;
+    font-size:12px;
+    margin-bottom:18px;
+}
+h1{
+    font-size:82px;
+    line-height:0.95;
+    margin:0 auto 26px;
+    max-width:850px;
+}
+.sub{
+    color:#b7bcc7;
+    max-width:700px;
+    margin:0 auto;
+    font-size:24px;
+    line-height:1.6;
+}
+.buttons{
+    margin-top:42px;
+    display:flex;
+    justify-content:center;
+    gap:16px;
+}
+.btn{
+    padding:16px 28px;
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:bold;
+}
+.primary{
+    background:#d6b35a;
+    color:#08111f;
+}
+.secondary{
+    border:1px solid rgba(255,255,255,0.2);
+    color:white;
+}
+@media(max-width:768px){
+    h1{
+        font-size:52px;
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(214,179,90,.08), transparent 35%),
-        radial-gradient(circle at 15% 15%, rgba(56,189,248,.06), transparent 30%),
-        linear-gradient(180deg, var(--bg), #03070c 100%);
-      color: var(--text);
-      min-height: 100vh;
+    .sub{
+        font-size:18px;
     }
-
-    .page { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 28px 0;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-      color: var(--text);
-      letter-spacing: .14em;
-      text-transform: lowercase;
-      font-size: 15px;
-    }
-
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      object-fit: cover;
-      border-radius: 9px;
-      opacity: .92;
-    }
-
-    nav { display: flex; gap: 24px; }
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
-      transition: color .2s ease;
-    }
-    nav a:hover { color: var(--gold2); }
-
-    .hero {
-      min-height: 78vh;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 56px 0 72px;
-    }
-
-    .logo-hero {
-      width: min(620px, 92vw);
-      margin: 0 auto 34px;
-      display: block;
-      filter: drop-shadow(0 28px 55px rgba(0,0,0,.45));
-    }
-
-    .eyebrow {
-      color: var(--gold2);
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      font-size: 12px;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: clamp(42px, 7vw, 84px);
-      line-height: .95;
-      margin: 0 auto 24px;
-      max-width: 880px;
-      letter-spacing: -0.06em;
-      font-weight: 650;
-    }
-
-    .lead {
-      margin: 0 auto 34px;
-      max-width: 670px;
-      color: var(--muted);
-      font-size: clamp(18px, 2vw, 22px);
-      line-height: 1.55;
-    }
-
-    .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 22px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 600;
-      border: 1px solid var(--border);
-      color: var(--text);
-      background: rgba(255,255,255,.04);
-    }
-    .btn.primary {
-      color: #111827;
-      background: linear-gradient(135deg, var(--gold2), var(--gold));
-      border: none;
-      box-shadow: 0 18px 42px rgba(214,179,90,.16);
-    }
-
-    section { padding: 76px 0; border-top: 1px solid rgba(255,255,255,.06); }
-    .section-title { font-size: clamp(30px, 4vw, 48px); margin: 0 0 18px; letter-spacing: -0.04em; }
-    .section-text { color: var(--muted); line-height: 1.7; font-size: 17px; max-width: 720px; }
-
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 24px;
-      padding: 28px;
-      min-height: 190px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.18);
-    }
-    .card h3 { margin: 0 0 12px; font-size: 20px; }
-    .card p { margin: 0; color: var(--muted); line-height: 1.65; }
-    .num { color: var(--gold2); font-size: 13px; letter-spacing: .16em; margin-bottom: 18px; }
-
-    .project {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 28px;
-      align-items: center;
-      background: linear-gradient(135deg, rgba(214,179,90,.08), rgba(255,255,255,.03));
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      padding: 34px;
-      margin-top: 34px;
-    }
-    .project h3 { font-size: 30px; margin: 0 0 12px; }
-    .project p { color: var(--muted); line-height: 1.7; }
-    .tag { display: inline-block; color: var(--gold2); border: 1px solid var(--border); border-radius: 999px; padding: 7px 12px; font-size: 13px; margin-bottom: 14px; }
-
-    footer { padding: 44px 0 60px; color: var(--muted); font-size: 14px; }
-    footer a { color: var(--gold2); text-decoration: none; }
-
-    @media (max-width: 780px) {
-      nav { display: none; }
-      .grid, .project { grid-template-columns: 1fr; }
-      .hero { min-height: auto; padding-top: 36px; }
-      .logo-hero { width: min(480px, 100%); }
-      .page { width: min(100% - 28px, 1120px); }
-    }
-  </style>
+}
+</style>
 </head>
 <body>
-  <div class="page">
-    <header>
-      <a class="brand" href="#top" aria-label="bjornfeldt home">
-        <img class="brand-mark" src="assets/bjornfeldt-logo.png" alt="bjornfeldt logo mark" />
-        <span>bjornfeldt</span>
-      </a>
-      <nav aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+<div class="container">
+<nav>
+<div class="logo">
+<img src="assets/bjornfeldt-logo.png" alt="logo">
+<span>bjornfeldt</span>
+</div>
 
-    <main id="top">
-      <section class="hero">
-        <div>
-          <img class="logo-hero" src="assets/bjornfeldt-logo.png" alt="bjornfeldt logo" />
-          <div class="eyebrow">Modern app development studio</div>
-          <h1>Building simple digital products with a premium feel.</h1>
-          <p class="lead">
-            bjornfeldt creates focused apps and web experiences designed to be useful, polished and easy to understand.
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="#projects">View projects</a>
-            <a class="btn" href="mailto:post@bjornfeldt.com">Contact</a>
-          </div>
-        </div>
-      </section>
+<div class="links">
+<a href="#">About</a>
+<a href="#">Projects</a>
+<a href="#">Contact</a>
+</div>
+</nav>
 
-      <section id="about">
-        <p class="eyebrow">About</p>
-        <h2 class="section-title">A clean home for future apps and software projects.</h2>
-        <p class="section-text">
-          bjornfeldt is the main brand behind app development, product ideas and digital tools. The goal is to create products that solve real problems with calm design, practical functionality and a professional user experience.
-        </p>
-        <div class="grid">
-          <div class="card"><div class="num">01</div><h3>Focused products</h3><p>Small, useful tools with clear purpose instead of unnecessary complexity.</p></div>
-          <div class="card"><div class="num">02</div><h3>Modern design</h3><p>Dark, premium interfaces with simple flows and a strong visual identity.</p></div>
-          <div class="card"><div class="num">03</div><h3>Built for real use</h3><p>Apps made to work in everyday situations, not just look good in screenshots.</p></div>
-        </div>
-      </section>
+<section class="hero">
+<img src="assets/bjornfeldt-logo.png" alt="bjornfeldt logo">
 
-      <section id="projects">
-        <p class="eyebrow">Projects</p>
-        <h2 class="section-title">Current project</h2>
-        <div class="project">
-          <div>
-            <span class="tag">In development</span>
-            <h3>Fair PlayTime Live</h3>
-            <p>
-              A mobile app for youth football coaches who want a simpler way to manage playing time, substitutions and match flow.
-            </p>
-            <a class="btn primary" href="https://fairplaytimelive.com">Visit project site</a>
-          </div>
-          <div class="card">
-            <h3>Product focus</h3>
-            <p>Fair play, simplicity, matchday usefulness and a clean mobile-first experience.</p>
-          </div>
-        </div>
-      </section>
+<div class="small">MODERN APP DEVELOPMENT STUDIO</div>
 
-      <section id="contact">
-        <p class="eyebrow">Contact</p>
-        <h2 class="section-title">Get in touch</h2>
-        <p class="section-text">
-          For questions, feedback or collaboration, contact bjornfeldt by email.
-        </p>
-        <div class="actions" style="justify-content:flex-start; margin-top:26px;">
-          <a class="btn primary" href="mailto:post@bjornfeldt.com">post@bjornfeldt.com</a>
-        </div>
-      </section>
-    </main>
+<h1>Building digital products</h1>
 
-    <footer>
-      © <span id="year"></span> bjornfeldt. All rights reserved.
-    </footer>
-  </div>
+<p class="sub">
+Apps and software built with a focus on usability and design.
+</p>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<div class="buttons">
+<a class="btn primary" href="#">View projects</a>
+<a class="btn secondary" href="#">Contact</a>
+</div>
+</section>
+</div>
 </body>
 </html>
